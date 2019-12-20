@@ -128,6 +128,8 @@ class CallbackModule(CallbackBase):
 
             if content is None:
                 content = models.FileContent(content=data)
+                db.session.add(content)
+                db.session.commit()
 
             file_.content = content
         except IOError:
